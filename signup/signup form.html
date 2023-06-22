@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>SignUp page</title>
+</head>
+
+<body align="center">
+    <h1>Create your Account</h1>
+    <table cellspacing="2" align="center" cellpadding="10" border="10">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" placeholder="Enter your name" id="n1"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" placeholder="Enter your email" id="e1"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Set password</td>
+            <td><input type="password" placeholder="set a password" id="p1"/></td>
+        </tr>
+        <tr>
+            <td>confirm password</td>
+            <td><input type="password" placeholder="confirm your password" id="p2"/></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <input type="submit" value="create" onclick="create_account()"/>
+
+
+    <script type="text/javascript">
+        function create_account() 
+        {
+            var n = document.getElementById("n1").value;
+            var e = document.getElementById("e1").value;
+            var p = document.getElementById("p1").value;
+            var cp = document.getElementById("p2").value;
+            //code for password validation
+            var letters = /^[A-Za-z]+$/;
+            var email_val = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;  
+            if (n=="||e=="||p=="||cp==") {
+                alert("Enter Details Correctly");
+            }
+            else if (!letters.test(n)) {
+                alert("Name is Incorrect must contain alphabets only");
+            }
+            else if (!email_val.test(e)) {
+                alert("Email is not valid");
+            }
+            else if (p!=cp) {
+                alert("Password is incorrect");
+            }
+            else if(document.getElementById("p1").value.length>12)
+            {
+                alert("Password maximum length is 12");
+            }
+            else if (document.getElementById("p1").value.length<6)
+            {
+                alert("Password minimum length is 6");
+            }
+            else
+            {
+                alert("Your account has been successfully Created");
+            }
+        }
+        </script>
+    </body>
+</html>
